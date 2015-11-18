@@ -19,12 +19,10 @@ import java.util.concurrent.TimeUnit;
 public class MonitoringService {
 
     @Produces
-    private static MetricRegistry metricRegistry
-
-            = null;
+    private static MetricRegistry metricRegistry;
 
     @PostConstruct
-    public void initMonitoring() {
+    public void init() {
         // configure reporter
         metricRegistry = new MetricRegistry();
         metricRegistry.register("jvm.attribute", new JvmAttributeGaugeSet());
