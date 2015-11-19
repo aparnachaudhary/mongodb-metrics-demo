@@ -15,9 +15,9 @@ import java.util.Map;
  * @author Aparna
  */
 @Stateless
-public class MetricsService implements MetricsResource {
+public class MetricsResourceService implements MetricsResource {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MetricsService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MetricsResourceService.class);
 
     @Inject
     private MetricRegistry metricRegistry;

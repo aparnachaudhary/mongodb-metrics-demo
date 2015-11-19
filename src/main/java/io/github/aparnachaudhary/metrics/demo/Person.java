@@ -9,6 +9,12 @@ public class Person {
     private String firstname;
     private String lastname;
 
+    public Person(Long id, String firstname, String lastname) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+    }
+
     public Long getId() {
         return id;
     }

@@ -34,7 +34,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
         <version.junit>4.12</version.junit>
-        <version.mongodb-metrics-reporter>1.0.0-SNAPSHOT</version.mongodb-metrics-reporter>
+        <version.mongodb-reporter>1.0.0-SNAPSHOT</version.mongodb-reporter>
+        <version.metrics-cdi>1.2.0</version.metrics-cdi>
         <version.metrics-core>3.1.2</version.metrics-core>
         <version.mongo-java-driver>3.1.1</version.mongo-java-driver>
         <version.slf4j-api>1.7.12</version.slf4j-api>
@@ -70,9 +71,19 @@
                 <version>${version.metrics-core}</version>
             </dependency>
             <dependency>
+                <groupId>io.dropwizard.metrics</groupId>
+                <artifactId>metrics-annotation</artifactId>
+                <version>${version.metrics-core}</version>
+            </dependency>
+            <dependency>
                 <groupId>io.github.aparnachaudhary.metrics</groupId>
                 <artifactId>mongodb-reporter</artifactId>
-                <version>${version.mongodb-metrics-reporter}</version>
+                <version>${version.mongodb-reporter}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.astefanutti.metrics.cdi</groupId>
+                <artifactId>metrics-cdi</artifactId>
+                <version>${version.metrics-cdi}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -104,15 +115,23 @@
             <artifactId>jboss-jaxrs-api_2.0_spec</artifactId>
             <scope>provided</scope>
         </dependency>
+        <!-- -->
         <dependency>
             <groupId>io.github.aparnachaudhary.metrics</groupId>
             <artifactId>mongodb-reporter</artifactId>
         </dependency>
         <dependency>
+            <groupId>io.astefanutti.metrics.cdi</groupId>
+            <artifactId>metrics-cdi</artifactId>
+        </dependency>
+        <dependency>
             <groupId>io.dropwizard.metrics</groupId>
             <artifactId>metrics-core</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>io.dropwizard.metrics</groupId>
+            <artifactId>metrics-annotation</artifactId>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

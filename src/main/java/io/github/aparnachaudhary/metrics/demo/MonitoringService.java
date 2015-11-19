@@ -5,26 +5,20 @@ import com.codahale.metrics.MetricRegistry;
 import com.mongodb.ServerAddress;
 import io.github.aparnachaudhary.metrics.MongoDBReporter;
 
-import javax.annotation.PostConstruct;
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 import java.util.concurrent.TimeUnit;
 
 /**
  * @author Aparna
  */
-@Singleton
-@Startup
 public class MonitoringService {
 
     @Produces
-    private static MetricRegistry metricRegistry;
-
-    @PostConstruct
-    public void init() {
+    @ApplicationScoped
+    public MetricRegistry init() {
         // configure reporter
-        metricRegistry = new MetricRegistry();
+        MetricRegistry metricRegistry = new MetricRegistry();
         metricRegistry.register("jvm.attribute", new JvmAttributeGaugeSet());
 
         MongoDBReporter reporter = MongoDBReporter.forRegistry(metricRegistry)
@@ -33,6 +27,7 @@ public class MonitoringService {
                 .prefixedWith("demo")
                 .build();
         reporter.start(1, TimeUnit.MINUTES);
+        return metricRegistry;
     }
 
 }
