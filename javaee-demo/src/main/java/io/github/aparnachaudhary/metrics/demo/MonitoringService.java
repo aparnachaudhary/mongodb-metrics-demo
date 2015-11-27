@@ -23,8 +23,8 @@ public class MonitoringService {
 
         MongoDBReporter reporter = MongoDBReporter.forRegistry(metricRegistry)
                 .serverAddresses(new ServerAddress[]{new ServerAddress("192.168.99.100", 32768)})
-                .withDatabaseName("metricstore")
-                .prefixedWith("demo")
+                .withDatabaseName("javaeedemo")
+                .prefixedWith("myweb")
                 .build();
         reporter.start(1, TimeUnit.MINUTES);
         return metricRegistry;
