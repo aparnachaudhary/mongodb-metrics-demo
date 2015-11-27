@@ -31,7 +31,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
 
-        <version.mongodb-reporter>1.0.0-SNAPSHOT</version.mongodb-reporter>
+        <version.mongodb-reporter>0.0.1-SNAPSHOT</version.mongodb-reporter>
         <version.metrics-core>3.1.2</version.metrics-core>
         <version.mongo-java-driver>3.1.1</version.mongo-java-driver>
 
@@ -59,8 +59,8 @@
                 <version>${version.metrics-core}</version>
             </dependency>
             <dependency>
-                <groupId>io.github.aparnachaudhary.metrics</groupId>
-                <artifactId>mongodb-reporter</artifactId>
+                <groupId>io.github.aparnachaudhary</groupId>
+                <artifactId>mongodb-metrics</artifactId>
                 <version>${version.mongodb-reporter}</version>
             </dependency>
         </dependencies>

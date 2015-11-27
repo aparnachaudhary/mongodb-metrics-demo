@@ -15,8 +15,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.github.aparnachaudhary.metrics</groupId>
-            <artifactId>mongodb-reporter</artifactId>
+            <groupId>io.github.aparnachaudhary</groupId>
+            <artifactId>mongodb-metrics</artifactId>
         </dependency>
     </dependencies>
 
