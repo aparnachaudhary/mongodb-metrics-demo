@@ -15,8 +15,9 @@ import java.util.concurrent.TimeUnit;
 public class MongoDbMetricsDemo {
 
     public static void main(String[] args) {
-        // configure reporter
+        // create metric registry
         MetricRegistry metricRegistry = new MetricRegistry();
+        // register JVM metrics
         metricRegistry.register("jvm.attribute", new JvmAttributeGaugeSet());
 
         MongoDBReporter reporter = MongoDBReporter.forRegistry(metricRegistry)
@@ -28,16 +29,14 @@ public class MongoDbMetricsDemo {
         reporter.start(5, TimeUnit.SECONDS);
 
         // register metric
-        metricRegistry.counter("demo.counter").inc();
+        metricRegistry.counter("demo.counter");
 
         // sleep for 10 seconds so that metric is reported to MongoDB store
         try {
             TimeUnit.SECONDS.sleep(10);
         } catch (InterruptedException e) {
             e.printStackTrace();
+            Thread.currentThread().interrupt();
         }
-
-
-
     }
 }
